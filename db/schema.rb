@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_165239) do
+ActiveRecord::Schema.define(version: 2021_11_22_184018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cards", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.decimal "price", precision: 2, scale: 1, default: "0.0", null: false
+    t.string "type"
+    t.string "photo"
+    t.boolean "foil", default: false
+    t.string "conservation_state"
+    t.string "color"
+    t.string "edition"
+    t.string "rarity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "card_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["card_id"], name: "index_orders_on_card_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +52,7 @@ ActiveRecord::Schema.define(version: 2021_11_22_165239) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "users"
+  add_foreign_key "orders", "cards"
+  add_foreign_key "orders", "users"
 end
