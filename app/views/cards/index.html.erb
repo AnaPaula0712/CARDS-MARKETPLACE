@@ -10,5 +10,15 @@
         <%= link_to 'Conheça essa carta!', card_path(card), class: "btn btn-outline-secondary" %>
       </div>
     <% end %>
+
+    <h2>My cards :</h2>
+    <% current_user.cards.each do |card|%>
+    <div>
+        <h2><%= card.name %></h2>
+        <h2><%= card.price %></h2>
+        <p><%= image_tag(card.photo, size: '120x200') %></p>
+        <%= link_to 'Veja a carta!', card_path(card), class: "btn btn-outline-secondary" %>
+    </div>
+    <% end %>
   </tbody>
 </div>
