@@ -1,0 +1,23 @@
+<h1>Esse é o seu set deck de cartas para venda</h1>
+
+<div>
+  <tbody>
+    <% @cards.each do |card| %>
+      <div>
+        <img src="https://www.pngfind.com/pngs/m/542-5427627_mtg-card-back-png-magic-transparent-png.png" />
+        <div>
+          <h2><%= card.name %></h2>
+          <p><%= card.price %></p>
+          <p><%= card.category %></p>
+          <p><%= card.photo %></p>
+          <p><%= card.foil %></p>
+          <p><%= card.conservation_state %></p>
+          <p><%= card.color %></p>
+          <p><%= card.edition %></p>
+          <p><%= card.rarity %></p>
+          <%= link_to 'Conheça essa carta!', card_path(card), class: "btn btn-outline-secondary" %>
+        </div>
+      </div>
+    <% end %>
+  </tbody>
+</div>
