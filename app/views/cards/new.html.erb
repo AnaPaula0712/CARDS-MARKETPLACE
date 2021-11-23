@@ -1,0 +1,13 @@
+<div>
+  <div>
+    <h1><strong>  Crie uma nova carta </strong></h1>
+  </div>
+
+  <div class="form-new">
+    <%= render 'form', card: @card %>
+  </div>
+
+  <div>
+    <%= link_to 'Voltar', cards_path, class: "btn btn-outline-secondary" %>
+  </div>
+</div>
