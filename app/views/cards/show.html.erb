@@ -1,23 +1,18 @@
-<h1>Esse é o seu set deck de cartas para venda</h1>
+<h1>Conheça mais informações sobre essa super carta à venda</h1>
 
 <div>
   <tbody>
-    <% @cards.each do |card| %>
       <div>
-        <img src="https://www.pngfind.com/pngs/m/542-5427627_mtg-card-back-png-magic-transparent-png.png" />
-        <div>
-          <h2><%= card.name %></h2>
-          <p><%= card.price %></p>
-          <p><%= card.category %></p>
-          <p><%= card.photo %></p>
-          <p><%= card.foil %></p>
-          <p><%= card.conservation_state %></p>
-          <p><%= card.color %></p>
-          <p><%= card.edition %></p>
-          <p><%= card.rarity %></p>
-          <%= link_to 'Conheça essa carta!', card_path(card), class: "btn btn-outline-secondary" %>
-        </div>
+        <h2><strong>Nome: <%= @card.name %></strong></h2>
+        <h3><%= image_tag(@card.photo, size: '120x200') %></h3>
+        <h3><strong>Preço: R$<%= @card.price %></strong></h3>
+        <h3><strong>Tipo: </strong><%= @card.category %></h3>
+        <h3><strong>Brilhante? </strong><%= @card.foil %></h3>
+        <h3><strong>Estado de conservação: </strong><%= @card.conservation_state %></h3>
+        <h3><strong>Cor: </strong><%= @card.color %></h3>
+        <h3><strong>Edição: </strong><%= @card.edition %></h3>
+        <h3><strong>Raridade: </strong><%= @card.rarity %></h3>
       </div>
-    <% end %>
+    <%= link_to 'Voltar!', cards_path, class: "btn btn-outline-secondary" %>
   </tbody>
 </div>
