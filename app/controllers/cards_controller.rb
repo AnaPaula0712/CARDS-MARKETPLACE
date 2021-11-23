@@ -20,6 +20,14 @@ class CardsController < ApplicationController
     end
   end
 
+  def destroy
+    @card = Card.find(params[:id])
+    if @card.user == current_user
+      @card.destroy
+      redirect_to cards_path, notice: 'Card was successfully destroyed.'
+    end
+  end
+
   def card_params
     description = %i[user_id name price category photo foil conservation_state color edition rarity]
     params.require(:card).permit(description)
