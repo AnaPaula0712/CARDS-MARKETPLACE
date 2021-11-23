@@ -14,5 +14,6 @@
         <h3><strong>Raridade: </strong><%= @card.rarity %></h3>
       </div>
     <%= link_to 'Voltar!', cards_path, class: "btn btn-outline-secondary" %>
+    <%= link_to 'Deletar!', card_path(@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
   </tbody>
 </div>
