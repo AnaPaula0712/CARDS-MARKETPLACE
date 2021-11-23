@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_184018) do
+ActiveRecord::Schema.define(version: 2021_11_22_222132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,14 +18,15 @@ ActiveRecord::Schema.define(version: 2021_11_22_184018) do
   create_table "cards", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "name"
-    t.decimal "price", precision: 2, scale: 1, default: "0.0", null: false
-    t.string "type"
+    t.decimal "price", precision: 6, scale: 2, default: "0.0", null: false
+    t.string "category"
     t.string "photo"
     t.boolean "foil", default: false
     t.string "conservation_state"
     t.string "color"
     t.string "edition"
     t.string "rarity"
+    t.boolean "available", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
