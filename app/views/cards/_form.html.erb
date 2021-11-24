@@ -6,7 +6,7 @@
   <div class="form-inputs mb-3" >
     <h2><%= f.input :name %></h2>
     <h2><%= f.input :price %></h2>
-    <h2><%= f.input :category %></h2>
+    <h2><%= f.input :category, collection: Card::CATEGORIES %></h2>
     <h2><%= f.input :foil %></h2>
     <h2><%= f.input :conservation_state, collection: Card::CONSERVATIONS %></h2>
     <h2><%= f.input :color, collection: Card::COLORS %></h2>
