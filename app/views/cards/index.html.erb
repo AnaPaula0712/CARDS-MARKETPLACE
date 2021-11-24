@@ -1,15 +1,38 @@
-<h1>Esse é o seu set deck de cartas para venda</h1>
-<img src="https://www.pngfind.com/pngs/m/542-5427627_mtg-card-back-png-magic-transparent-png.png" />
-<div>
+
+<div class="cards-banner-bg" >
+  <div class="container">
+    <div class="col-12">
+     <h2 class="title mt-5 pb-3 text-center">Available Cards</h2>
+     <%= link_to 'Coloque sua carta a venda', new_card_path, class: "btn btn-info" %>
+    </div>
+      <% @cards.each do |card| %>
+        <div class="row">
+          <div class="container d-inline-flex flex-wrap">
+            <div class="row justify-content-center">
+              <div class="card m-3 radius-5" style="width: 13rem;">
+                <div class="flat-card">
+                      <div><%= image_tag(card.photo, size: '205x250') %></div>
+                        <div class="card-body">
+                          <h5 class="card-title"><%= card.name %></h5>
+                          <p class="card-text"><%= card.price %></p>
+                        </div>
+
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">Vestibulumas justtibulumestibul estibul </li>
+                        </ul>
+                        <div class="card-body">
+                          <%= link_to 'Conheça essa carta', card_path(card), class: "btn btn-outline-dark btn-sm" %>
+                          <%# <%= link_to 'Compre', card_path(card), class: "btn btn-outline-dark btn-sm" %>
+                        </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+  </div>
+</div>
   <tbody>
-    <% @cards.each do |card| %>
-      <div>
-        <h2><%= card.name %></h2>
-        <h2><%= card.price %></h2>
-        <p><%= image_tag(card.photo, size: '120x200') %></p>
-        <%= link_to 'Conheça essa carta!', card_path(card), class: "btn btn-outline-secondary" %>
-      </div>
-    <% end %>
 
     <h2>My cards :</h2>
     <% current_user.cards.each do |card|%>
