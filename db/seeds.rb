@@ -87,5 +87,3 @@ Card.create!(
   edition: "C21",
   rarity: "rare"
 )
-
-puts "finished"
