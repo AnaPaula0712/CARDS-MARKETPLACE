@@ -1,16 +1,17 @@
-<%= simple_form_for(@card) do |f| %>
+<%= simple_form_for(card) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+<div class="container">
+  <div class="form-inputs mb-3" >
     <h2><%= f.input :name %></h2>
     <h2><%= f.input :price %></h2>
     <h2><%= f.input :category %></h2>
     <h2><%= f.input :foil %></h2>
-    <h2><%= f.input :conservation_state %></h2>
-    <h2><%= f.input :color %></h2>
+    <h2><%= f.input :conservation_state, collection: Card::CONSERVATIONS %></h2>
+    <h2><%= f.input :color, collection: Card::COLORS %></h2>
     <h2><%= f.input :edition %></h2>
-    <h2><%= f.input :rarity %></h2>
+    <h2><%= f.input :rarity, collection: Card::RARITIES %></h2>
     <h2><%= f.input :photo %></h2>
   </div>
 
@@ -18,3 +19,4 @@
     <%= f.button :submit, 'Criar carta', class: "btn btn-outline-secondary mb-3"%>
   </div>
 <% end %>
+</div>

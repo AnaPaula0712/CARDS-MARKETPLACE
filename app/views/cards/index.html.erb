@@ -38,7 +38,7 @@
     <% current_user.cards.each do |card|%>
     <div>
         <h2><%= card.name %></h2>
-        <h2><%= card.price %></h2>
+        <h2>R$<%= card.price %></h2>
         <p><%= image_tag(card.photo, size: '120x200') %></p>
         <%= link_to 'Veja a carta!', card_path(card), class: "btn btn-outline-secondary" %>
     </div>
