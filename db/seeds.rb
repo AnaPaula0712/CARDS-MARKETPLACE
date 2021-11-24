@@ -5,6 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Delete all existed data"
+
+User.destroy_all
+Card.destroy_all
+
+puts "Recreating data....."
 
 user1 = User.create!(email: 'maria@email.com', password: '123456')
 user2 = User.create!(email: 'jose@test.com', password: '123123')
@@ -87,3 +93,5 @@ Card.create!(
   edition: "C21",
   rarity: "rare"
 )
+
+puts "Finished"
