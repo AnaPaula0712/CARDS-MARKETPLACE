@@ -21,6 +21,10 @@ class CardsController < ApplicationController
     end
   end
 
+  def search
+    @cards = Card.where(name: params[:name])
+  end
+
   def destroy
     @card = Card.find(params[:id])
     if @card.user == current_user
