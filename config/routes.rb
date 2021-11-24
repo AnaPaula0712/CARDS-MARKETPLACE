@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :cards, only: %i[index show new create destroy] do
     resources :orders, only: %i[new create]
   end
+  resources :cards, only: %i[new create destroy] do
+    resources :questions, only: %i[new create destroy]
+  end
 end

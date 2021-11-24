@@ -13,8 +13,30 @@
         <h3><strong>Edição: </strong><%= @card.edition %></h3>
         <h3><strong>Raridade: </strong><%= @card.rarity %></h3>
       </div>
+
     <%= link_to 'Comprar!', new_card_order_path(@card), class: "btn btn-outline-secondary" %>
     <%= link_to 'Deletar!', card_path(@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     <%= link_to 'Voltar!', cards_path, class: "btn btn-outline-secondary" %>
+
   </tbody>
+  <p>
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Faça uma review
+    </a>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      <%= simple_form_for [ @card, @question ] do |f| %>
+            <%= f.input :context %>
+            <%= f.submit "Submit review", class: "btn btn-primary" %>
+          <% end %>
+    </div>
+  </div>
+    <ul class="list-group">
+      <% @card.questions.each do |question| %>
+        <li class="list-group-item"><%= question.context %></li>
+      <% end %>
+    </ul>
+  <div>
+  </div>
 </div>

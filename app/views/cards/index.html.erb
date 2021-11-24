@@ -1,47 +1,56 @@
 
-<div class="cards-banner-bg" >
-  <div class="container">
+<div class="cards-banner-bg m-0" >
+  <div class="row m-0">
     <div class="col-12">
-     <h2 class="title mt-5 pb-3 text-center">Available Cards</h2>
-     <%= link_to 'Coloque sua carta a venda', new_card_path, class: "btn btn-info" %>
+      <h2 class="title mt-5 pb-3 text-center">Available Cards</h2>
+      <div class="row justify-content-around mb-15">
+        <%= link_to 'Coloque sua carta a venda', new_card_path, class: "btn btn-info" %>
+      </div>
     </div>
-      <% @cards.each do |card| %>
-        <div class="row">
-          <div class="container d-inline-flex flex-wrap">
-            <div class="row justify-content-center">
-              <div class="card m-3 radius-5" style="width: 13rem;">
-                <div class="flat-card">
-                      <div><%= image_tag(card.photo, size: '205x250') %></div>
-                        <div class="card-body">
-                          <h5 class="card-title"><%= card.name %></h5>
-                          <p class="card-text"><%= card.price %></p>
-                        </div>
-
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Vestibulumas justtibulumestibul estibul </li>
-                        </ul>
-                        <div class="card-body">
-                          <%= link_to 'Conheça essa carta', card_path(card), class: "btn btn-outline-dark btn-sm" %>
-                          <%# <%= link_to 'Compre', card_path(card), class: "btn btn-outline-dark btn-sm" %>
-                        </div>
-                </div>
-              </div>
-            </div>
+  </div>
+  <div class="row justify-content-around m-0">
+    <% @cards.each do |card| %>
+      <div class="card m-3 radius-5" style="width: 13rem;">
+        <div class="flat-card">
+          <div>
+            <%= image_tag(card.photo, size: '205x250') %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= card.name %></h5>
+            <p class="card-text">R$<%= card.price %></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Vestibulumas justtibulumestibul estibul </li>
+          </ul>
+          <div class="card-body">
+            <%= link_to 'Conheça essa carta', card_path(card), class: "btn btn-outline-dark btn-sm" %>
           </div>
         </div>
-      <% end %>
-  </div>
-</div>
-  <tbody>
-
-    <h2>My cards :</h2>
-    <% current_user.cards.each do |card|%>
-    <div>
-        <h2><%= card.name %></h2>
-        <h2>R$<%= card.price %></h2>
-        <p><%= image_tag(card.photo, size: '120x200') %></p>
-        <%= link_to 'Veja a carta!', card_path(card), class: "btn btn-outline-secondary" %>
-    </div>
+      </div>
     <% end %>
-  </tbody>
+  </div>
+  <hr>
+  <div class="row m-0">
+    <div class="col-12">
+      <h2 class="title mt-5 pb-3 text-center">My cards for sale</h2>
+    </div>
+  </div>
+  <div class="row justify-content-around m-0">
+    <% current_user.cards.each do |card|%>
+      <div class="card m-3 radius-5" style="width: 13rem;">
+        <div class="flat-card">
+          <div>
+            <%= image_tag(card.photo, size: '205x250') %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= card.name %></h5>
+            <p class="card-text">R$ <%= card.price %></p>
+          </div>
+          <div class="card-body">
+            <%= link_to 'Editar produto', card_path(card), class: "btn btn-outline-secondary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
