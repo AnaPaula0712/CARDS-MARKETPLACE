@@ -1,4 +1,4 @@
-<h1>Conheça mais informações sobre essa super carta à venda</h1>
+<h1>Confirmação da compra</h1>
 
 <div>
   <tbody>
@@ -13,8 +13,10 @@
         <h3><strong>Edição: </strong><%= @card.edition %></h3>
         <h3><strong>Raridade: </strong><%= @card.rarity %></h3>
       </div>
-    <%= link_to 'Comprar!', new_card_order_path(@card), class: "btn btn-outline-secondary" %>
-    <%= link_to 'Deletar!', card_path(@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-    <%= link_to 'Voltar!', cards_path, class: "btn btn-outline-secondary" %>
+      <%= simple_form_for [@card, @order] do |f| %>
+        <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+        <%= f.button :submit, 'Confirmação da compra', class: "btn btn-outline-secondary"%>
+      <% end %>
+      <%= link_to "Desistir a compra", cards_path, class: "btn btn-outline-secondary"%>
   </tbody>
 </div>
