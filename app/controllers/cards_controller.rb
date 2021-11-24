@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   def index
-    @cards = Card.all
+    @cards = Card.where(available: true)
   end
 
   def show
@@ -20,6 +20,10 @@ class CardsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def search
+    @cards = Card.where(name: params[:name])
   end
 
   def destroy
