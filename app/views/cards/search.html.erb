@@ -1,0 +1,14 @@
+<h1>Resultados da busca</h1>
+<tbody>
+  <% if !@cards.empty? %>
+    <% @cards.each do |card| %>
+      <h3><%= card.name %></h3>
+      <h3><%= image_tag(card.photo, size: '120x200') %></h3>
+      <h3><strong>Preço: R$<%= card.price %></strong></h3>
+    <% end %>
+  <% else %>
+    <h2> Carta não encontrada! <i class="far fa-frown"></i></h2>
+  <% end %>
+</tbody>
+
+<%= link_to 'Voltar!', cards_path, class: "btn btn-outline-secondary" %>
