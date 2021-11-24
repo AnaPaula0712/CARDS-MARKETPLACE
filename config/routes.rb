@@ -9,4 +9,7 @@ Rails.application.routes.draw do
     end
     resources :orders, only: %i[new create]
   end
+  resources :cards, only: %i[new create destroy] do
+    resources :questions, only: %i[new create destroy]
+  end
 end

@@ -5,6 +5,7 @@ class Card < ApplicationRecord
   RARITIES = ["commom", "uncommom", "rare", "mythic rare"]
 
   belongs_to :user
+  has_many :questions
   has_one :order
   validates :name, :price, :category, :conservation_state,
             :color, :rarity, presence: true
