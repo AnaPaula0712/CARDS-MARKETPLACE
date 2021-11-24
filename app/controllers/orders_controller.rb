@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  
+
   def new
     @card = Card.find(params[:card_id])
     @order = Order.new
@@ -7,9 +7,11 @@ class OrdersController < ApplicationController
 
   def create
     card = Card.find(params[:card_id])
+    card.available = false
     order = Order.new(order_params)
     order.card = card
     if order.save
+      card.save
       redirect_to cards_path
     else
       render :new
