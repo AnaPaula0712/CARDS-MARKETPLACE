@@ -13,15 +13,15 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
+    @card.user = current_user
     if @card.save
-      redirect_to card_path(@card)
+      redirect_to @card
     else
       render :new
     end
   end
 
   def card_params
-    description = %i[user_id name price category photo foil conservation_state color edition rarity]
-    params.require(:card).permit(description)
+    params.require(:card).permit(:name, :foil, :price, :category, :conservation_state, :color, :edition, :rarity, :photo)
   end
 end
