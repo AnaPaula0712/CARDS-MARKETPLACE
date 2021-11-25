@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     order.card = card
     if order.save
       card.save
-      redirect_to cards_path
+      redirect_to purchase_path
     else
       render :new
     end

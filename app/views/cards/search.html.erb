@@ -1,4 +1,4 @@
-<h1 style= "color: white; text-align:center; margin:40px;">Resultados da busca</h1>
+<h1 style="color: white;"><strong> Search Results </strong></h1>
 
 <div class="busca" style= "margin:40px 600px 30px 600px;">
   <%= form_with url: search_cards_url, method: :get do %>
@@ -26,15 +26,16 @@
                 <p class="card-text">$<%= card.price %></p>
             </div>
             <div class="card-body">
-            <%= link_to 'Conheça essa carta', card_path(card), class: "btn btn-outline-dark btn-sm" %>
+            <%= link_to '+ info', card_path(card), class: "btn btn-outline-dark btn-sm" %>
           </div>
         </div>
       </div>
     <% end %>
   <% else %>
-    <h2> Carta não encontrada! <i class="far fa-frown"></i></h2>
+    <h2> Card not found! <i class="far fa-frown"></i></h2>
   <% end %>
-    </div>
+</div>
+
 <div style="text-align: center; margin:20px;">
-  <%= link_to 'Voltar!', cards_path, class: "btn btn-dark" %>
+  <%= link_to 'Back', cards_path, class: "btn btn-secondary" %>
 </div>
