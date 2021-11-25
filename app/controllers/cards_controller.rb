@@ -23,7 +23,7 @@ class CardsController < ApplicationController
   end
 
   def search
-    # @cards = Card.where(:name ILIKE?, name: params[:name])
+    @cards = Card.search_by_name(params[:name])
   end
 
   def destroy
