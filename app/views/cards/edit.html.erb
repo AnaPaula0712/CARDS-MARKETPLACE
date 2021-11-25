@@ -1,0 +1,22 @@
+<div>
+  <div class = 'container'>
+    <div align = "center">
+
+      <div>
+        <h1><strong> Editing your card </strong></h1>
+      </div>
+
+      <div class="form-new">
+        <%= render 'form', card: @card %>
+        <div class="form-actions">
+    <button type="button" class="btn btn-primary btn-lg mb-4" data-toggle="modal" data-target="#exampleModalCenter">
+  Updated Card </button>
+      </div>
+
+      <div>
+        <%= link_to 'Back', cards_path, class: "btn btn-secondary btn-lg radius-2" %>
+      </div>
+
+    </div>
+  </div>
+</div>

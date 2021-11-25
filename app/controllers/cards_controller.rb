@@ -1,10 +1,11 @@
 class CardsController < ApplicationController
+  before_action :set_card, only: %i[show edit update destroy]
+
   def index
     @cards = Card.where(available: true)
   end
 
   def show
-    @card = Card.find(params[:id])
     @question = Question.new
   end
 
@@ -22,16 +23,30 @@ class CardsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @card.user == current_user
+      @card.update(card_params)
+      redirect_to card_path(@card), notice: 'Card was successfully updated.'
+    end
+  end
+
   def search
     @cards = Card.search_by_name(params[:name])
   end
 
   def destroy
-    @card = Card.find(params[:id])
     if @card.user == current_user
       @card.destroy
       redirect_to cards_path, notice: 'Card was successfully destroyed.'
     end
+  end
+
+  private
+
+  def set_card
+    @card = Card.find(params[:id])
   end
 
   def card_params
