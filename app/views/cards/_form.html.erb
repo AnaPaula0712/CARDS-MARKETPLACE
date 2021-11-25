@@ -3,6 +3,9 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="container">
+    <div>
+      <h1><strong> Create New Cards </strong></h1>
+    </div>
     <div class="col-md-6 col-sm-6 col-xs-12 form-inputs mb-2 radius-15" >
       <h2><%= f.input :name %></h2>
       <h2><%= f.input :price %></h2>
