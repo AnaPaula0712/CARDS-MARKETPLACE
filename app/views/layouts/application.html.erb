@@ -13,12 +13,13 @@
   </head>
 
   <body>
-
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <div class="pb-5 mb-5">
-      <%= yield %>
+    <div class="<%= "bg-banner" unless current_page?(root_path)%>">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+      <div class="pb-5 mb-5">
+        <%= yield %>
+      </div>
+      <%= render 'shared/footer' %>
     </div>
-    <%= render 'shared/footer' %>
   </body>
 </html>

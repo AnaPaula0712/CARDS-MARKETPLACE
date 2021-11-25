@@ -1,22 +1,33 @@
-<h1>Confirmação da compra</h1>
 
-<div>
-  <tbody>
-      <div>
-        <h2><strong>Nome: <%= @card.name %></strong></h2>
-        <h3><%= image_tag(@card.photo, size: '120x200') %></h3>
-        <h3><strong>Preço: R$<%= @card.price %></strong></h3>
-        <h3><strong>Tipo: </strong><%= @card.category %></h3>
-        <h3><strong>Brilhante? </strong><%= @card.foil %></h3>
-        <h3><strong>Estado de conservação: </strong><%= @card.conservation_state %></h3>
-        <h3><strong>Cor: </strong><%= @card.color %></h3>
-        <h3><strong>Edição: </strong><%= @card.edition %></h3>
-        <h3><strong>Raridade: </strong><%= @card.rarity %></h3>
+
+<h1>Conheça mais informações sobre essa super carta à venda</h1>
+
+<div class="container">
+  <div class="row justify-content-around m-0">
+    <div class="card m-3 radius-5" style="width: 15rem;">
+      <div class="flat-card">
+        <div>
+          <%= image_tag(@card.photo, size: '240x300') %>
+        </div>
+        <div class="card-body">
+          <h2><strong>Nome: <%= @card.name %></strong></h2>
+          <h3><strong>Preço: R$<%= @card.price %></strong></h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Tipo: </strong><%= @card.category %></li>
+          <li class="list-group-item"><strong>Brilhante: </strong><%= @card.foil %></li>
+          <li class="list-group-item"><strong>Estado de conservação: </strong><%= @card.conservation_state %></li>
+          <li class="list-group-item"><strong>Cor: </strong><%= @card.color %></li>
+          <li class="list-group-item"><strong>Edição: </strong><%= @card.edition %></li>
+          <li class="list-group-item"><strong>Raridade: </strong><%= @card.rarity %></li>
+          <div class="card-body">
+            <%= simple_form_for [@card, @order] do |f| %>
+            <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+            <%= f.button :submit, 'Confirm Purshase', class: "btn btn-warning"%>
+            <% end %>
+            <%= link_to "Give Up", cards_path, class: "btn btn-danger"%>
+          </div>
+        </ul>
       </div>
-      <%= simple_form_for [@card, @order] do |f| %>
-        <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-        <%= f.button :submit, 'Confirmação da compra', class: "btn btn-outline-secondary"%>
-      <% end %>
-      <%= link_to "Desistir a compra", cards_path, class: "btn btn-outline-secondary"%>
-  </tbody>
-</div>
+    </div>
+  </div>
