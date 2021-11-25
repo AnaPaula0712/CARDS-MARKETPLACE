@@ -87,3 +87,159 @@ Card.create!(
   edition: "C21",
   rarity: "rare"
 )
+
+Card.create!(
+  user: user1,
+  name: "Wizened Snitches",
+  price: 16.00,
+  category: "Creature",
+  photo: "https://repositorio.sbrauble.com/arquivos/in/magic/197/5f424340b8875-m1nf9c-sr3vef-d09bf41544a3365a46c9077ebb5e35c3.jpg",
+  foil: true,
+  conservation_state: "SP",
+  color: "Blue",
+  edition: "C21",
+  rarity: "uncommon"
+)
+
+Card.create!(
+  user: user2,
+  name: "Tribute Mage",
+  price: 29.00,
+  category: "Creature",
+  photo: "https://gatherer.wizards.com/Handlers/Image.ashx?type=card&name=Tribute+Mage",
+  foil: true,
+  conservation_state: "MP",
+  color: "Blue",
+  edition: "BFZ",
+  rarity: "rare"
+)
+
+Card.create!(
+  user: user3,
+  name: "Arquivo de Edro",
+  price: 5.00,
+  category: "artifact",
+  photo: "https://mypcards.com/img/1/1191/magic_c19_214/magic_c19_214_pt_thumb.jpg",
+  foil: false,
+  conservation_state: "NM",
+  color: "colorless",
+  edition: "C21",
+  rarity: "uncommon"
+)
+
+Card.create!(
+  user: user1,
+  name: "Terrivelmente Errado",
+  price: 6.00,
+  category: "instant",
+  photo: "https://mypcards.com/img/1/6/magic_bfz_059/magic_bfz_059_pt_thumb.jpg",
+  foil: false,
+  conservation_state: "SP",
+  color: "blue",
+  edition: "BFZ",
+  rarity: "uncommon"
+)
+
+Card.create!(
+  user: user2,
+  name: "Pântano",
+  price: 2.00,
+  category: "Land",
+  photo: "https://www.domaingames.com.br/imagens/200x284/0-SHM-290.jpg",
+  foil: true,
+  conservation_state: "HP",
+  color: "colorless",
+  edition: "NFT",
+  rarity: "common"
+)
+
+Card.create!(
+  user: user3,
+  name: "Oblivion Sower",
+  price: 13.00,
+  category: "Creature",
+  photo: "https://repositorio.sbrauble.com/arquivos/in/magic/69642/5f4243f91aee0-xyg2cp-w2chai-3416a75f4cea9109507cacd8e2f2aefc.jpg",
+  foil: true,
+  conservation_state: "MP",
+  color: "colorless",
+  edition: "DDP",
+  rarity: "mythic rare"
+)
+
+Card.create!(
+  user: user1,
+  name: "A Errante",
+  price: 7.00,
+  category: "planeswalker",
+  photo: "https://mypcards.com/img/1/1122/magic_war_037/magic_war_037_pt.jpg",
+  foil: false,
+  conservation_state: "M",
+  color: "white",
+  edition: "WAR",
+  rarity: "uncommon"
+)
+
+Card.create!(
+  user: user2,
+  name: "Mulldrifter",
+  price: 185.00,
+  category: "Creature",
+  photo: "https://repositorio.sbrauble.com/arquivos/in/magic/479868/612d56b271266-47wj8-bv0oj-1919181794612d56b2712a4.jpg",
+  foil: false,
+  conservation_state: "MP",
+  color: "blue",
+  edition: "CMR",
+  rarity: "uncommon"
+)
+
+Card.create!(
+  user: user3,
+  name: "Priest of Fell Rites",
+  price: 56.00,
+  category: "creature",
+  photo: "https://repositorio.sbrauble.com/arquivos/in/magic/479868/612d56c04c27f-2nfi9-di3eb-695277384612d56c04c2be.jpg",
+  foil: false,
+  conservation_state: "M",
+  color: "white",
+  edition: "MH2",
+  rarity: "rare"
+)
+
+Card.create!(
+  user: user1,
+  name: "Ranar, o vigilante eterno",
+  price: 55.00,
+  category: "Creature",
+  photo: "https://repositorio.sbrauble.com/arquivos/in/magic/479837/600859b56f29a-yrl9b-mfxik-1953855683600859b56f300.jpg",
+  foil: true,
+  conservation_state: "M",
+  color: "blue",
+  edition: "KHC",
+  rarity: "mythic rare"
+)
+
+Card.create!(
+  user: user2,
+  name: "Sol Ring",
+  price: 4.00,
+  category: "artifact",
+  photo: "https://repositorio.sbrauble.com/arquivos/in/magic/179141/5f42440e809e7-tfvl2n-tvxh58-9b04d152845ec0a378394003c96da594.jpg",
+  foil: false,
+  conservation_state: "NM",
+  color: "colorless",
+  edition: "CMR",
+  rarity: "uncommon"
+)
+
+Card.create!(
+  user: user3,
+  name: "Vega, o vigia",
+  price: 9.00,
+  category: "creature",
+  photo: "https://mypcards.com/img/1/1515/magic_khm_233/magic_khm_233_en.jpg",
+  foil: false,
+  conservation_state: "HP",
+  color: "white",
+  edition: "KHM",
+  rarity: "uncommon"
+)
