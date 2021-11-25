@@ -10,4 +10,7 @@ class Card < ApplicationRecord
   validates :name, :price, :category, :conservation_state,
             :color, :rarity, presence: true
   validates :foil, :available, inclusion: { in: [true, false] }
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name, against: [:name], using: { tsearch: { prefix: true } }
 end
