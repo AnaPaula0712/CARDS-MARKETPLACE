@@ -1,4 +1,16 @@
 <h1>Resultados da busca</h1>
+
+<div class="busca">
+  <%= form_with url: search_cards_url, method: :get do %>
+    <%= text_field_tag :name,
+        params[:name],
+        class: "form-control",
+        placeholder: "Find a card"
+    %>
+    <%= submit_tag 'Find' %>
+  <% end %>
+</div>
+
 <tbody>
   <% if !@cards.empty? %>
     <% @cards.each do |card| %>
@@ -10,5 +22,7 @@
     <h2> Carta não encontrada! <i class="far fa-frown"></i></h2>
   <% end %>
 </tbody>
+
+
 
 <%= link_to 'Voltar!', cards_path, class: "btn btn-outline-secondary" %>

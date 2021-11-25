@@ -6,8 +6,12 @@
         <%= link_to 'Coloque sua carta a venda', new_card_path, class: "btn btn-info" %>
           <div class="busca">
             <%= form_with url: search_cards_url, method: :get do %>
-              <%= text_field_tag :name %>
-              <%= submit_tag 'Busque uma carta' %>
+              <%= text_field_tag :name,
+                  params[:name],
+                  class: "form-control",
+                  placeholder: "Find a card"
+              %>
+              <%= submit_tag 'Find' %>
             <% end %>
           </div>
       </div>
