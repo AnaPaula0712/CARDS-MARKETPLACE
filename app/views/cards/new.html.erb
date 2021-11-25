@@ -1,18 +1,13 @@
 <div>
-<div class = 'container'>
-  <div align = "center">
+  <div class = 'container'>
+    <div align = "center">
+      <div class="form-new">
+        <%= render 'form', card: @card %>
+      </div>
 
-  <div>
-    <h1><strong> Create New Cards </strong></h1>
+      <div>
+        <%= link_to 'Back', cards_path, class: "btn btn-secondary btn-lg radius-2" %>
+      </div>
+    </div>
   </div>
-
-
-  <div class="form-new">
-    <%= render 'form', card: @card %>
-  </div>
-
-  <div>
-    <%= link_to 'Back', cards_path, class: "btn btn-secondary btn-lg radius-2" %>
-  </div>
-</div>
 </div>

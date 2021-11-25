@@ -15,7 +15,9 @@
       </div>
 
     <%= link_to 'Comprar!', new_card_order_path(@card), class: "btn btn-outline-secondary" %>
+    <% if @card.user == current_user %>
     <%= link_to 'Deletar!', card_path(@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    <% end %>
     <%= link_to 'Voltar!', cards_path, class: "btn btn-outline-secondary" %>
 
   </tbody>
