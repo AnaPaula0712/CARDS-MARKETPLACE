@@ -1,4 +1,4 @@
-<h1>Resultados da busca</h1>
+<h1 style="color: white;"><strong> Search Results </strong></h1>
 
 <div class="busca">
   <%= form_with url: search_cards_url, method: :get do %>
@@ -14,15 +14,16 @@
 <tbody>
   <% if !@cards.empty? %>
     <% @cards.each do |card| %>
-      <h3><%= card.name %></h3>
+      <h3 style="color: white;"><%= card.name %></h3>
       <h3><%= image_tag(card.photo, size: '120x200') %></h3>
-      <h3><strong>Preço: R$<%= card.price %></strong></h3>
+      <h3 style="color: white;"><strong>Price: $<%= card.price %></strong></h3>
+      <%= link_to '+ info', card_path(card), class: "btn btn-outline-dark btn-sm" %>
     <% end %>
   <% else %>
-    <h2> Carta não encontrada! <i class="far fa-frown"></i></h2>
+    <h2> Card not found! <i class="far fa-frown"></i></h2>
   <% end %>
 </tbody>
 
 
 
-<%= link_to 'Voltar!', cards_path, class: "btn btn-outline-secondary" %>
+<%= link_to 'Back', cards_path, class: "btn btn-secondary" %>
