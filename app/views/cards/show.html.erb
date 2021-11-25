@@ -1,31 +1,44 @@
 <h1>Conheça mais informações sobre essa super carta à venda</h1>
 
 <div class="container">
-  <tbody>
-      <div>
-        <h2><strong>Nome: <%= @card.name %></strong></h2>
-        <h3><%= image_tag(@card.photo, size: '120x200') %></h3>
-        <h3><strong>Preço: R$<%= @card.price %></strong></h3>
-        <h3><strong>Tipo: </strong><%= @card.category %></h3>
-        <h3><strong>Brilhante: </strong><%= @card.foil %></h3>
-        <h3><strong>Estado de conservação: </strong><%= @card.conservation_state %></h3>
-        <h3><strong>Cor: </strong><%= @card.color %></h3>
-        <h3><strong>Edição: </strong><%= @card.edition %></h3>
-        <h3><strong>Raridade: </strong><%= @card.rarity %></h3>
+  <div class="row justify-content-around m-0">
+    <div class="card m-3 radius-5" style="width: 15rem;">
+      <div class="flat-card">
+        <div>
+          <%= image_tag(@card.photo, size: '240x300') %>
+        </div>
+        <div class="card-body">
+          <h2><strong>Nome: <%= @card.name %></strong></h2>
+          <h3><strong>Preço: R$<%= @card.price %></strong></h3>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Tipo: </strong><%= @card.category %></li>
+          <li class="list-group-item"><strong>Brilhante: </strong><%= @card.foil %></li>
+          <li class="list-group-item"><strong>Estado de conservação: </strong><%= @card.conservation_state %></li>
+          <li class="list-group-item"><strong>Cor: </strong><%= @card.color %></li>
+          <li class="list-group-item"><strong>Edição: </strong><%= @card.edition %></li>
+          <li class="list-group-item"><strong>Raridade: </strong><%= @card.rarity %></li>
+          <div class="card-body">
+            <% if current_user != @card.user  %>
+            <%= link_to 'Buy', new_card_order_path(@card), class: "btn btn-success" %>
+            <% end %>
+            <% if @card.user == current_user %>
+            <%= link_to 'Delete', card_path(@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            <% end %>
+            <%= link_to 'Back', cards_path, class: "btn btn-secondary" %>
+            <% if current_user != @card.user  %>
+              <p>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Ask a question
+                </a>
+              </p>
+            <% end %>
+          </div>
+        </ul>
       </div>
+    </div>
+  </div>
 
-    <%= link_to 'Comprar!', new_card_order_path(@card), class: "btn btn-outline-secondary" %>
-    <% if @card.user == current_user %>
-    <%= link_to 'Deletar!', card_path(@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-    <% end %>
-    <%= link_to 'Voltar!', cards_path, class: "btn btn-outline-secondary" %>
-
-  </tbody>
-  <p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-      Faça uma review
-    </a>
-  </p>
   <div class="collapse" id="collapseExample">
     <div class="card card-body">
       <%= simple_form_for [ @card, @question ] do |f| %>
@@ -33,12 +46,12 @@
             <%= f.submit "Submit review", class: "btn btn-primary" %>
           <% end %>
     </div>
-  </div>
-    <ul class="list-group">
-      <% @card.questions.each do |question| %>
-        <li class="list-group-item"><%= question.context %></li>
-      <% end %>
-    </ul>
-  <div>
+    </div>
+      <ul class="list-group">
+        <% @card.questions.each do |question| %>
+          <li class="list-group-item"><%= question.context %></li>
+        <% end %>
+      </ul>
+    <div>
   </div>
 </div>
