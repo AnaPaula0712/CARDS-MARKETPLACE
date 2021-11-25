@@ -15,12 +15,13 @@
           <p class="card-text">R$ <%= card.price %></p>
         </div>
         <div class="card-body">
-          <%= link_to 'Edit Card', edit_card_path(card), class: "btn btn-outline-secondary" %>
+          <%= link_to 'Edit Card', edit_card_path(card), class: "btn btn-primary" %>
+          <%= link_to 'Delete',  card_path(card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         </div>
       </div>
     </div>
   <% end %>
-  <div>
+</div>
+ <div style="text-align:center; margin:40px;">
     <%= link_to 'Back', cards_path, class: "btn btn-secondary btn-lg radius-2" %>
   </div>
-</div>

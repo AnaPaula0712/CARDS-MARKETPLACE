@@ -23,7 +23,7 @@
             <%= link_to 'Buy', new_card_order_path(@card), class: "btn btn-success" %>
             <% end %>
             <% if @card.user == current_user %>
-            <%= link_to 'Delete', card_path(@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+            <%= link_to 'Delete', sale_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
             <% end %>
             <%= link_to 'Back', cards_path, class: "btn btn-secondary" %>
             <% if current_user != @card.user  %>

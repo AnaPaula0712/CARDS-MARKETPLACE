@@ -39,7 +39,7 @@ class CardsController < ApplicationController
   def destroy
     if @card.user == current_user
       @card.destroy
-      redirect_to cards_path, notice: 'Card was successfully destroyed.'
+      redirect_to sale_path, notice: 'Card was successfully destroyed.'
     end
   end
 
