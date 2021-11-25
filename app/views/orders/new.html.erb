@@ -23,8 +23,12 @@
           <div class="card-body">
             <%= simple_form_for [@card, @order] do |f| %>
             <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-            <%= f.button :submit, 'Confirm Purchase', class: "btn btn-warning"%>
+            <span id="sweet-alert-demo" class="btn btn-warning">Confirm Purchase</span>
+            <input type="submit" id="submit-button" name="commit" style="visibility:hidden" value="Create Order" data-disable-with="Create Order">
             <% end %>
+
+
+
             <%= link_to "Give Up", cards_path, class: "btn btn-danger"%>
           </div>
         </ul>
