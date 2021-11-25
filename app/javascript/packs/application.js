@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 Rails.start()
 Turbolinks.start()
@@ -27,4 +28,15 @@ console.log("Ola pessoal");
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initSweetalert('#sweet-alert-demo', {
+    title: "Congratulation!",
+    text: "Your purchase was successful",
+    icon: "success" //warning
+  }, (value) => {
+    console.log(value)
+    if (value) {
+      const btn = document.getElementById("submit-button");
+      btn.click();
+    }
+  });
 });
