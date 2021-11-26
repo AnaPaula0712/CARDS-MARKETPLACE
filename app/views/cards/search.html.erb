@@ -1,29 +1,41 @@
-<h1 style="color: white;"><strong> Search Results </strong></h1>
+<h1 style="color: white; text-align:center;"> Search Cards</h1>
 
-<div class="busca">
+<div class="busca" style= "margin:40px 600px 30px 600px;">
   <%= form_with url: search_cards_url, method: :get do %>
     <%= text_field_tag :name,
         params[:name],
         class: "form-control",
         placeholder: "Find a card"
     %>
-    <%= submit_tag 'Find' %>
+    <div style="text-align: center; margin:20px ">
+      <%= submit_tag 'Find', class: "btn btn-dark" %>
+    </div>
   <% end %>
 </div>
 
-<tbody>
+<div class="row justify-content-around m-0">
   <% if !@cards.empty? %>
     <% @cards.each do |card| %>
-      <h3 style="color: white;"><%= card.name %></h3>
-      <h3><%= image_tag(card.photo, size: '120x200') %></h3>
-      <h3 style="color: white;"><strong>Price: $<%= card.price %></strong></h3>
-      <%= link_to '+ info', card_path(card), class: "btn btn-outline-dark btn-sm" %>
+      <div class="card m-3 radius-5" style="width: 13rem;">
+        <div class="flat-card">
+            <div>
+                <%= image_tag(card.photo, size: '205x250') %>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= card.name %></h5>
+                <p class="card-text">$<%= card.price %></p>
+            </div>
+            <div class="card-body">
+            <%= link_to '+ info', card_path(card), class: "btn btn-outline-dark btn-sm" %>
+          </div>
+        </div>
+      </div>
     <% end %>
   <% else %>
     <h2> Card not found! <i class="far fa-frown"></i></h2>
   <% end %>
-</tbody>
+</div>
 
-
-
-<%= link_to 'Back', cards_path, class: "btn btn-secondary" %>
+<div style="text-align: center; margin:20px;">
+  <%= link_to 'Back', cards_path, class: "btn btn-secondary" %>
+</div>
