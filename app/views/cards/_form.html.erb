@@ -14,7 +14,7 @@
         <h2><%= f.input :color, collection: Card::COLORS %></h2>
         <h2><%= f.input :edition %></h2>
         <h2><%= f.input :rarity, collection: Card::RARITIES %></h2>
-        <h2><%= f.input :photo %></h2>
+        <h2><%= f.input :photo, as: :file %></h2>
       </div>
     </div>
 
@@ -32,7 +32,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="submit" class="btn btn-primary">Confirm</button>
           </div>
         </div>
       </div>

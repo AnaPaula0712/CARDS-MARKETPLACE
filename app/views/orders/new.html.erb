@@ -7,7 +7,7 @@
     <div class="card m-3 radius-5" style="width: 15rem;">
       <div class="flat-card">
         <div>
-          <%= image_tag(@card.photo, size: '240x300') %>
+          <%= cl_image_tag @card.photo.key, size: '240x300' %>
         </div>
         <div class="card-body">
           <h3 style= "color: black;"><strong><%= @card.name %></strong></h3>
@@ -23,13 +23,13 @@
           <div class="card-body">
             <%= simple_form_for [@card, @order] do |f| %>
             <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
-            <span id="sweet-alert-demo" class="btn btn-warning">Confirm Purchase</span>
+            <span id="sweet-alert-demo" class="btn btn-warning radius-15">Confirm Purchase</span>
             <input type="submit" id="submit-button" name="commit" style="visibility:hidden" value="Create Order" data-disable-with="Create Order">
             <% end %>
 
 
 
-            <%= link_to "Give Up", cards_path, class: "btn btn-danger"%>
+            <%= link_to "Give Up", cards_path, class: "btn btn-danger radius-15"%>
           </div>
         </ul>
       </div>

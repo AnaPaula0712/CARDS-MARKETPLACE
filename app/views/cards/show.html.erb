@@ -5,7 +5,7 @@
     <div class="card m-3 radius-5" style="width: 15rem;">
       <div class="flat-card">
         <div>
-          <%= image_tag(@card.photo, size: '240x300') %>
+          <%= cl_image_tag @card.photo.key, size: '240x300' %>
         </div>
         <div class="card-body">
           <h3 style= "color: black;"><strong><%= @card.name %></strong></h3>
@@ -13,26 +13,28 @@
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><strong>Type: </strong><%= @card.category %></li>
-          <li class="list-group-item"><strong>Foil: </strong><%= @card.foil %></li>
+          <li class="list-group-item"><strong>Foil: </strong><%= @card.foil ? "Yes" : "No" %></li>
           <li class="list-group-item"><strong>Condition: </strong><%= @card.conservation_state %></li>
           <li class="list-group-item"><strong>Collor: </strong><%= @card.color %></li>
           <li class="list-group-item"><strong>Edition: </strong><%= @card.edition %></li>
           <li class="list-group-item"><strong>Rarity: </strong><%= @card.rarity %></li>
           <div class="card-body">
-            <% if current_user != @card.user  %>
-            <%= link_to 'Buy', new_card_order_path(@card), class: "btn btn-success" %>
-            <% end %>
-            <% if @card.user == current_user %>
-            <%= link_to 'Delete', sale_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-            <% end %>
-            <%= link_to 'Back', cards_path, class: "btn btn-secondary" %>
-            <% if current_user != @card.user  %>
-              <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                Ask a question
-                </a>
-              </p>
-            <% end %>
+            <div class="row d-flex justify-content-center">
+              <% if current_user != @card.user  %>
+              <%= link_to 'Buy', new_card_order_path(@card), class: "btn btn-success mb-3 radius-15" %>
+              <% end %>
+              <% if @card.user == current_user %>
+              <%= link_to 'Delete', card_path(@card), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger mb-3 radius-15" %>
+              <% end %>
+              <%= link_to 'Back', cards_path, class: "btn btn-secondary mb-3 ml-3 radius-15" %>
+              <% if current_user != @card.user  %>
+                <p>
+                  <a class="btn btn-primary radius-15" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  Ask a question
+                  </a>
+                </p>
+              <% end %>
+            </div>
           </div>
         </ul>
       </div>
@@ -43,7 +45,7 @@
     <div class="card card-body">
       <%= simple_form_for [ @card, @question ] do |f| %>
         <%= f.input :context %>
-        <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <%= f.submit "Submit review", class: "btn btn-primary radius-15" %>
       <% end %>
     </div>
     <div>
