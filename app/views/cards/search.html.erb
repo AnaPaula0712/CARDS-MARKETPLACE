@@ -1,6 +1,6 @@
 <h1 style="color: white; text-align:center;"> Search Cards</h1>
 
-<div class="busca" style= "margin:40px 600px 30px 600px;">
+<div class="busca" style= "margin:40px 450px 30px 450px;">
   <%= form_with url: search_cards_url, method: :get do %>
     <%= text_field_tag :name,
         params[:name],
@@ -26,7 +26,7 @@
                 <p class="card-text">$<%= card.price %></p>
             </div>
             <div class="card-body">
-            <%= link_to '+ info', card_path(card), class: "btn btn-outline-dark btn-sm" %>
+            <%= link_to '+ info', card_path(card), class: "btn btn-outline-dark btn-sm radius-15" %>
           </div>
         </div>
       </div>
@@ -37,5 +37,5 @@
 </div>
 
 <div style="text-align: center; margin:20px;">
-  <%= link_to 'Back', cards_path, class: "btn btn-secondary" %>
+  <%= link_to 'Back', cards_path, class: "btn btn-secondary radius-15" %>
 </div>

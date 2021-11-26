@@ -4,7 +4,7 @@
       <h2 class="title mt-5 pb-3 text-center">Cards for sale</h2>
       <div class="row justify-content-around mb-5 ">
         <div>
-          <%= link_to 'Put your card up for sale', new_card_path, class: "btn btn-info" %>
+          <%= link_to 'Put your card up for sale', new_card_path, class: "btn btn-info radius-15" %>
         </div>
           <div class="busca">
             <%= form_with url: search_cards_url, method: :get do %>
@@ -14,7 +14,7 @@
                   placeholder: "Find a card"
               %>
               <div style="text-align: center; margin:10px;">
-                <%= submit_tag 'Find', class: "btn btn-dark btn-sm" %>
+                <%= submit_tag 'Find', class: "btn btn-dark btn-sm radius-15" %>
               </div>
             <% end %>
           </div>
@@ -33,7 +33,7 @@
             <p class="card-text">$<%= card.price %></p>
           </div>
           <div class="card-body">
-            <%= link_to '+ info', card_path(card), class: "btn btn-outline-dark btn-sm" %>
+            <%= link_to '+ info', card_path(card), class: "btn btn-outline-dark btn-sm radius-15" %>
           </div>
         </div>
       </div>
