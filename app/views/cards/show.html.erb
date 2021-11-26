@@ -42,16 +42,16 @@
   <div class="collapse" id="collapseExample">
     <div class="card card-body">
       <%= simple_form_for [ @card, @question ] do |f| %>
-            <%= f.input :context %>
-            <%= f.submit "Submit review", class: "btn btn-primary" %>
-          <% end %>
+        <%= f.input :context %>
+        <%= f.submit "Submit review", class: "btn btn-primary" %>
+      <% end %>
     </div>
-    </div>
+    <div>
       <ul class="list-group">
         <% @card.questions.each do |question| %>
           <li class="list-group-item"><%= question.context %></li>
         <% end %>
       </ul>
-    <div>
+    </div>
   </div>
 </div>
