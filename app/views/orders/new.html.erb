@@ -7,7 +7,7 @@
     <div class="card m-3 radius-5" style="width: 15rem;">
       <div class="flat-card">
         <div>
-          <%= image_tag(@card.photo, size: '240x300') %>
+          <%= cl_image_tag @card.photo.key, size: '240x300' %>
         </div>
         <div class="card-body">
           <h3 style= "color: black;"><strong><%= @card.name %></strong></h3>

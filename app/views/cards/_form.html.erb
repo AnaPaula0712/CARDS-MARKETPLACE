@@ -14,7 +14,7 @@
         <h2><%= f.input :color, collection: Card::COLORS %></h2>
         <h2><%= f.input :edition %></h2>
         <h2><%= f.input :rarity, collection: Card::RARITIES %></h2>
-        <h2><%= f.input :photo %></h2>
+        <h2><%= f.input :photo, as: :file %></h2>
       </div>
     </div>
 
