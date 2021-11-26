@@ -1,21 +1,25 @@
 <h1>Your purchased cards</h1>
+<div>
+  <h1 style= "color: white; text-align:center;">Your purchased cards</h1>
+</div>
 
-<div class="conteiner">
-  <div class="row justify-content-around m-0">
-      <% current_user.orders.each do |order| %>
-        <% card = order.card %>
+<div class="row justify-content-around m-0">
+    <% current_user.orders.each do |order| %>
+    <% card = order.card %>
         <div class="card m-3 radius-5" style="width: 13rem;">
-        <div class="flat-card">
-          <div>
-            <h3><strong>Purchase date: <%= card.created_at.strftime('%F') %></strong></h3>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title"><%= card.name %></h5>
-            <p class="card-text">$<%= card.price %></p>
-          </div>
-          <div class="card-body">
-            <%= link_to '+ info', card_path(card), class: "btn btn-outline-dark btn-sm" %>
-          </div>
-      <% end %>
-  </div>
+
+            <div class="flat-card">
+              <div>
+                <%= image_tag(card.photo, size: '205x250') %>
+              </div>
+              <div class="card-body">
+                  <h5 class="card-title"><%= card.name %></h5>
+                  <p class="card-text">$<%= card.price %></p>
+              </div>
+            </div>
+        <div style="margin: 5;">
+          <h6>Purchase date: <%= card.created_at.strftime('%F') %></h6>
+        </div>
+      </div>
+    <% end %>
 </div>

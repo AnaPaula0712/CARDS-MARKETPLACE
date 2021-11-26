@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
-  # def new
-  #   @card = card.find(parms[:card_id])
-  #   @question = Question.new
-  # end
+  def new
+    @card = card.find(parms[:card_id])
+    @question = Question.new
+  end
 
    def create
     @question = Question.new(question_params)
