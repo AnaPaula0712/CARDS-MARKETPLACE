@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2021_11_25_210547) do
     t.string "name"
     t.decimal "price", precision: 6, scale: 2, default: "0.0", null: false
     t.string "category"
-    t.string "photo"
     t.boolean "foil", default: false
     t.string "conservation_state"
     t.string "color"

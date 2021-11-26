@@ -7,7 +7,7 @@ class Card < ApplicationRecord
   belongs_to :user
   has_many :questions
   has_one :order
-  has_one_attached :picture # should adjust with "photo" in database?
+  has_one_attached :photo # should adjust with "photo" in database?
   validates :name, :price, :category, :conservation_state,
             :color, :rarity, presence: true
   validates :foil, :available, inclusion: { in: [true, false] }
