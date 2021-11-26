@@ -1,0 +1,13 @@
+
+<div class="busca">
+  <%= form_with url: search_cards_url, method: :get do %>
+    <%= text_field_tag :name,
+        params[:name],
+        class: "form-control",
+        placeholder: "Find a card"
+    %>
+    <div style="text-align: center; margin:10px;">
+      <%= submit_tag 'Find', class: "btn btn-dark btn-sm" %>
+    </div>
+  <% end %>
+</div>

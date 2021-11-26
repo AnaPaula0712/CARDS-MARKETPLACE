@@ -4,6 +4,11 @@
     <%= image_tag "logo.png" %>
   <% end %>
 
+  <%= render 'shared/form_search' unless current_page?(search_cards_path) ||
+                                          current_page?(new_user_session_path)||
+                                          current_page?(new_user_registration_path)||
+                                          current_page?(root_path)%>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
