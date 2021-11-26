@@ -166,7 +166,7 @@ card11 = Card.create!(
   name: "Pântano",
   price: 2.00,
   category: "Land",
-  # photo: "https://www.domaingames.com.br/imagens/200x284/0-SHM-290.jpg",
+  # photo: "https://repositorio.sbrauble.com/arquivos/in/magic/479772/5f424436a658a-0okjn9-47a69p-b337e84de8752b27eda3a12363109e80.jpg",
   foil: true,
   conservation_state: "HP",
   color: "colorless",
@@ -174,7 +174,7 @@ card11 = Card.create!(
   rarity: "common"
 )
 
-card11.photo.attach(io: URI.open("https://www.domaingames.com.br/imagens/200x284/0-SHM-290.jpg"), filename: "#{card11.name.tr(' ', '')}.jpg")
+card11.photo.attach(io: URI.open("https://repositorio.sbrauble.com/arquivos/in/magic/479772/5f424436a658a-0okjn9-47a69p-b337e84de8752b27eda3a12363109e80.jpg"), filename: "#{card11.name.tr(' ', '')}.jpg")
 
 card12 = Card.create!(
   user: user3,
